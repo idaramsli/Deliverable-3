@@ -59,3 +59,56 @@ class Character:
     def is_alive(self) -> bool:
         """Read-only: True if HP is over 0, if below 0 then False"""
         return self._hp > 0
+
+
+class Warrior(Character):
+    def __init__(
+            self,
+            name: str,
+            hp_max: int = 100,
+            damage: int = 10,
+            weapon=None,
+            armor: int = 5
+    ) -> None:
+        """
+        Initialise the Warrior with a name, maximum hit points (hp_max),
+        damage value, an optional weapon, and armor.
+        """
+        super().__init__(name, hp_max, damage, weapon)
+        self.armor = armor
+
+    def take_damage(self, amount: int) -> None:
+        """Reduce incoming damage by armor value"""
+        reduced_damage = max(amount - self.armor, 0)
+        super().take_damage(reduced_damage)
+
+
+
+
+class Mage(Character):
+    def __init__(
+        self,
+        name: str,
+        hp_max: int = 100,
+        damage: int = 10,
+        weapon=None,
+        mana: int = 30,
+        mana_max: int = 30
+    ) -> None:
+
+        """Initialise a Mage with mana."""
+        super().__init__(name, hp_max, damage, weapon)
+        self.mana_max = mana_max
+        self.mana = min(mana, mana_max)
+
+    def attack(self, target: "Character") -> None:
+        """Use a magical attack if enough mana is available."""
+
+        if self.mana >= 10:
+            self.mana -= 10
+            magic_damage = self.damage * 2
+            target.take_damage(magic_damage)
+
+        else:
+            super().attack(target)
+            self.mana = min(self.mana + 5, self.mana_max)
