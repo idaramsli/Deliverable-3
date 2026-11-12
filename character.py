@@ -1,13 +1,22 @@
 
 class Character:
-    def __init__(self, name: str, hp_max: int = 100, damage: int = 10) -> None:
+    def __init__(
+            self, 
+            name: str, 
+            hp_max: int = 100,
+            damage: int = 10,
+            weapon=None
+        ) -> None:
+       
         """
-        Initialise the Character with a name, maximum hit points (hp_max), and damage value.
+        Initialise the Character with a name, maximum hit points (hp_max),
+        damage value and an optional weapon.
         """
         self.name = name
         self._hp = hp_max  
         self.hp_max = hp_max
         self.damage = damage
+        self.weapon = weapon
 
     def take_damage(self, amount: int) -> None:
         """Reduce own HP by amount. HP cannot go below 0."""
@@ -22,8 +31,12 @@ class Character:
         self._hp = min(self._hp + amount, self.hp_max)
 
     def attack(self, target: "Character") -> None:
-        """Attacking target by calling the take_damage() method"""
-        target.take_damage(self.damage)
+        """Attacking target by using weapon damage or default damage if no weapon is equipped."""
+        if self.weapon is not None:
+            damage = self.weapon.roll_damage()
+        else:
+            damage = self.damage
+        target.take_damage(damage)
 
     def introduce(self) -> None:
         """Print a introduction of the character"""
