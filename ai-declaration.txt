@@ -12,3 +12,9 @@ I made my own test cases, checked that the results were correct, and adjusted th
 and discussion text myself. I made sure I understand the code, so I can explain it in our video.
 
 
+I (Emilie) used ChatGPT and Copilot during this assignment. 
+I used AI to help me improve my first version of the code,
+and to explain concepts like for example what `__init__` does. 
+I also used AI to check for spelling errors, 
+and to make sure the code fit the requierment for the tasks.
+
