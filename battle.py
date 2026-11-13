@@ -10,6 +10,8 @@ class Battle:
         self.hero.attack(self.enemy)
         if self.enemy.is_alive:
             self.enemy.attack(self.hero)
+        if not self.hero.is_alive:
+            print(f"{self.hero.name} has been defeated!")
         else:
             print(f"{self.enemy.name} has been defeated!")
 
