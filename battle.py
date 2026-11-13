@@ -18,6 +18,9 @@ class Battle:
         while self.hero.is_alive and self.enemy.is_alive:
             print(f"Round {round_number}:")
             self.play_round()
+            print(f"{self.hero.name}: {self.hero.hp} HP")
+            print(f"{self.enemy.name}: {self.enemy.hp} HP")
+            print()
             round_number += 1
             
         if self.hero.is_alive:
