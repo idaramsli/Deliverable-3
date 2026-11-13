@@ -5,15 +5,19 @@ class Battle:
     def __init__(self, hero: Character, enemy: Character) -> None:
         self.hero = hero
         self.enemy = enemy
-        
+
     def play_round(self) -> None:
         self.hero.attack(self.enemy)
+
         if self.enemy.is_alive:
             self.enemy.attack(self.hero)
-        if not self.hero.is_alive:
-            print(f"{self.hero.name} has been defeated!")
+
+            if not self.hero.is_alive:
+                print(f"{self.hero.name} has been defeated!")
+
         else:
             print(f"{self.enemy.name} has been defeated!")
+
 
     def simulate_battle(self) -> None:
         round_number = 1
@@ -24,6 +28,7 @@ class Battle:
             print(f"{self.enemy.name}: {self.enemy.hp} HP")
             print()
             round_number += 1
+
             
         if self.hero.is_alive:
             print(f"{self.hero.name} wins!")
