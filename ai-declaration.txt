@@ -1,0 +1,14 @@
+## Use of Generative AI
+
+I (Ida) used Claude (Anthropic) as a tutor for Task 1 and Task 2. I used it to explain concepts
+like encapsulation, `@property`, and `__repr__` vs `__str__`, and to understand error messages.
+
+I first wrote `take_damage()`, `heal()` and `attack()` myself, but had indentation errors.
+Claude explained the errors and provided a version of `character.py` and `dice.py` that was used for help,
+based on the lecture code. Claude also helped with VS Code setup (file names, imports) and
+suggested wording for the discussions.
+
+I made my own test cases, checked that the results were correct, and adjusted the docstrings
+and discussion text myself. I made sure I understand the code, so I can explain it in our video.
+
+
